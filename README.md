@@ -12,3 +12,20 @@ for starting kafka and zoopker
 
 Produced message: HelloKafka
 Consumed message: HelloKafka
+
+
+
+Create a topic 
+
+C:\MyDrive\Study\docker>docker exec -it 778a030f1381 /opt/kafka/bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic my-topic
+Created topic my-topic.
+
+
+Produce a Message
+C:\MyDrive\Study\docker>docker exec -it 778a030f1381 /opt/kafka/bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic my-topic
+>Hello from Docker!
+>^C
+
+Consume a Message
+C:\MyDrive\Study\docker>docker exec -it 778a030f1381 /opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic my-topic --from-beginning
+Hello from Docker!
